@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasm Example</title>
+</head>
+<body>
+    <h1>Wasm Example</h1>
+    <div id="output"></div>
+    <script type="module">
+        import init, { hello } from './pkg/rust_hello_world.js';
+
+        async function run() {
+            await init();
+            const result = hello("World");
+            console.log(result);
+
+            const output = document.getElementById('output');
+            output.innerText = result;
+        }
+
+        run();
+    </script>
+</body>
+</html>
